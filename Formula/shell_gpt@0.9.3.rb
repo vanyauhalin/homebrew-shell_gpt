@@ -10,6 +10,11 @@ class ShellGptAT093 < Formula
 
   depends_on "python@3"
 
+  resource "requests" do
+    url "https://github.com/psf/requests/archive/refs/tags/v2.31.0.tar.gz"
+    sha256 "24bc1acfdf14f8b94cb2b6a8c38ef9a99bdd146a2976b5a2db7706fba0bcb7cd"
+  end
+
   resource "typer" do
     url "https://github.com/tiangolo/typer/archive/refs/tags/0.9.0.tar.gz"
     sha256 "64cec3f6cf47a0059b5c0f79ca04d2791101a9013c6e189590890fe796c7f8ec"
