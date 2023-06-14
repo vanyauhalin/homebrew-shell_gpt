@@ -20,7 +20,6 @@ class ShellGptAT093 < Formula
   # │  ├─ click
   # │  └─ typing-extensions
   # ├─ click
-  # │  └─ importlib-metadata
   # └─ distro
 
   resource "certifi" do
@@ -46,11 +45,6 @@ class ShellGptAT093 < Formula
   resource "idna" do
     url "https://github.com/kjd/idna/archive/refs/tags/v3.4.tar.gz"
     sha256 "afbfa0caebd4872b38ab1af86b37bd4f46d4fccc8d5ce226cb9ee91b91196848"
-  end
-
-  resource "importlib-metadata" do
-    url "https://github.com/python/importlib_metadata/archive/refs/tags/v6.6.0.tar.gz"
-    sha256 "be59394f7986dc3df97a39baa3daedd053f2620026f7e9f38d14d65480a94cfb"
   end
 
   resource "requests" do
