@@ -19,6 +19,11 @@ class ShellGptAT093 < Formula
   # ├─ typer
   # │  ├─ click
   # │  └─ typing-extensions
+  # ├─ rich
+  # │  ├─ typing-extensions
+  # │  ├─ pygments
+  # │  └─ markdown-it-py
+  # │     └─ mdurl
   # ├─ click
   # └─ distro
 
@@ -47,9 +52,29 @@ class ShellGptAT093 < Formula
     sha256 "afbfa0caebd4872b38ab1af86b37bd4f46d4fccc8d5ce226cb9ee91b91196848"
   end
 
+  resource "markdown-it-py" do
+    url "https://github.com/executablebooks/markdown-it-py/archive/refs/tags/v2.2.0.tar.gz"
+    sha256 "a201c93c023d0c810023b38f3e9ad48be433095c5437d5410af04a73665c8ff1"
+  end
+
+  resource "mdurl" do
+    url "https://github.com/executablebooks/mdurl/archive/refs/tags/0.1.2.tar.gz"
+    sha256 "99d4fabddab7ee4a05fa458deb1a6f0d009966e4631c50d1b875767a1cd3896d"
+  end
+
+  resource "pygments" do
+    url "https://github.com/pygments/pygments/archive/refs/tags/2.15.1.tar.gz"
+    sha256 "4c32e73db926abd5941c8874378315583a5484a6fa100e1aa1c356d944223e61"
+  end
+
   resource "requests" do
     url "https://github.com/psf/requests/archive/refs/tags/v2.31.0.tar.gz"
     sha256 "24bc1acfdf14f8b94cb2b6a8c38ef9a99bdd146a2976b5a2db7706fba0bcb7cd"
+  end
+
+  resource "rich" do
+    url "https://github.com/Textualize/rich/archive/refs/tags/v13.4.2.tar.gz"
+    sha256 "12840a1eb0400792d2d12a57c7ede779b6eacf8f27718618127adbc1749c1a91"
   end
 
   resource "typer" do
