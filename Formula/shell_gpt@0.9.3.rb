@@ -20,6 +20,11 @@ class ShellGptAT093 < Formula
     sha256 "abb9959ec2d6cf198f70ca78ec2a5cd74110a6de728ecd19d8892ff65576f184"
   end
 
+  resource "typing-extensions" do
+    url "https://github.com/python/typing_extensions/archive/refs/tags/4.6.3.tar.gz"
+    sha256 "14a7279d1e2b13d9f24acecab576e8c82a066173e5e620782a95e6856eca615e"
+  end
+
   def install
     virtualenv_install_with_resources(using: "python@3")
   end
