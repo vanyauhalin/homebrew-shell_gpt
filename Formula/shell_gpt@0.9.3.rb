@@ -15,6 +15,11 @@ class ShellGptAT093 < Formula
     sha256 "64cec3f6cf47a0059b5c0f79ca04d2791101a9013c6e189590890fe796c7f8ec"
   end
 
+  resource "click" do
+    url "https://github.com/pallets/click/archive/refs/tags/8.1.3.tar.gz"
+    sha256 "abb9959ec2d6cf198f70ca78ec2a5cd74110a6de728ecd19d8892ff65576f184"
+  end
+
   def install
     virtualenv_install_with_resources(using: "python@3")
   end
