@@ -10,6 +10,11 @@ class ShellGptAT093 < Formula
 
   depends_on "python@3"
 
+  resource "typer" do
+    url "https://github.com/tiangolo/typer/archive/refs/tags/0.9.0.tar.gz"
+    sha256 "64cec3f6cf47a0059b5c0f79ca04d2791101a9013c6e189590890fe796c7f8ec"
+  end
+
   def install
     virtualenv_install_with_resources(using: "python@3")
   end
