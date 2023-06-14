@@ -25,6 +25,11 @@ class ShellGptAT093 < Formula
     sha256 "14a7279d1e2b13d9f24acecab576e8c82a066173e5e620782a95e6856eca615e"
   end
 
+  resource "distro" do
+    url "https://github.com/python-distro/distro/archive/refs/tags/v1.8.0.tar.gz"
+    sha256 "dbe04e1801d9f6015036b1b5d7220ab2c37ce4b054db9cca9ac85764f95c2523"
+  end
+
   def install
     virtualenv_install_with_resources(using: "python@3")
   end
