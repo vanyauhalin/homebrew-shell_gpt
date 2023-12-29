@@ -5,15 +5,14 @@ help: #     Show help information.
 	@grep -E "^[a-z-]+: #" $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ": # "}; {printf "%s: %s\n", $$1, $$2}'
 
-.PHONY: dev
-dev: #      Install development dependencies and initialize them.
+.PHONY: install
+install: #  Install development dependencies.
 	@bundle install
-	@bundle exec tapioca init
 
 .PHONY: lint
-lint: #     Lint the code.
+lint: #     Lint for the style.
 	@bundle exec rubocop
 
 .PHONY: aliases
 aliases: #  Generate aliases.
-	@ruby makefile.rb aliases
+	@ruby ./scripts/aliases.rb
