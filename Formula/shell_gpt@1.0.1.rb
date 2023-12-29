@@ -1,4 +1,4 @@
-class ShellGptAT094 < Formula
+class ShellGptAT101 < Formula
   include Language::Python::Virtualenv
 
   desc "A command-line productivity tool powered by GPT-3 and GPT-4, will help you accomplish your tasks faster and more efficiently"
