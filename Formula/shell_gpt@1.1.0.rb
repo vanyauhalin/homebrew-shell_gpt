@@ -4,7 +4,7 @@ class ShellGptAT110 < Formula
   desc "A command-line productivity tool powered by GPT-3 and GPT-4, will help you accomplish your tasks faster and more efficiently"
   homepage "https://github.com/TheR1D/shell_gpt"
   url "https://github.com/TheR1D/shell_gpt/archive/refs/tags/1.1.0.tar.gz"
-  sha256 ""
+  sha256 "67b18d3042968f75c0c2aa82bb6d25a7e12d5f858ea4400301a1575669611dd1"
   license "MIT"
   head "https://github.com/TheR1D/shell_gpt", branch: "main"
 
