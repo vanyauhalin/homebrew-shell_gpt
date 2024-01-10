@@ -8,7 +8,8 @@ class ShellGptAT110 < Formula
   license "MIT"
   head "https://github.com/TheR1D/shell_gpt", branch: "main"
 
-  depends_on "python@3.12"
+  # https://github.com/aio-libs/aiohttp/issues/7739#issuecomment-1773868351
+  depends_on "python@3.11"
 
   # shell_gpt
   # ├─ requests >= 2.28.2, < 3.0.0
