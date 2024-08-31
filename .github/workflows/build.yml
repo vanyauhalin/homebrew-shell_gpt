@@ -1,0 +1,75 @@
+name: Build ShellGPT Binary
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      shell_gpt_ref:
+        description: ShellGPT Git Reference
+        required: true
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+    - name: Checkout ShellGPT Repository
+      uses: actions/checkout@v4
+      with:
+        repository: TheR1D/shell_gpt
+        ref: ${{github.event.inputs.shell_gpt_ref}}
+        path: shell_gpt
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12
+
+    - name: Install Nuitka
+      run: pip install "nuitka==2.4.8"
+
+    - name: Install ShellGPT Dependencies
+      working-directory: shell_gpt
+      run: pip install .
+
+    - name: Build ShellGPT Binary
+      working-directory: shell_gpt
+      run: |
+        python -m nuitka \
+          --assume-yes-for-downloads \
+          --clang \
+          --onefile \
+          --standalone \
+          sgpt/app.py
+
+    - name: Rename ShellGPT Binary
+      working-directory: shell_gpt
+      run: mv app.bin sgpt
+
+    - name: Archive ShellGPT Binary
+      working-directory: shell_gpt
+      run: |
+        tar \
+          --create \
+          --file shell_gpt.tar.zst \
+          --use-compress-program zstd \
+          sgpt
+
+    - name: Checkout Homebrew ShellGPT Repository
+      uses: actions/checkout@v4
+      with:
+        path: homebrew_shell_gpt
+
+    - name: Release ShellGPT Binary on GitHub
+      working-directory: homebrew_shell_gpt
+      env:
+        GH_TOKEN: ${{github.token}}
+      run: |
+        nt="$(curl --location ${{github.server_url}}/${{github.repository}}/raw/main/notes.md)"
+        gh release create \
+          --notes "$nt" \
+          --target build \
+          --title "ShellGPT ${{github.event.inputs.shell_gpt_ref}}" \
+          "shell_gpt@${{github.event.inputs.shell_gpt_ref}}" \
+          ../shell_gpt/shell_gpt.tar.zst

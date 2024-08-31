@@ -1,0 +1,4 @@
+This release page provides a [ShellGPT](https://github.com/TheR1D/shell_gpt/) binary file specifically for macOS. It is included here to serve as a reference for the unofficial [Homebrew ShellGPT formula](https://github.com/vanyauhalin/homebrew-shell_gpt/). By reading the source instructions of the [Build ShellGPT Binary](https://github.com/vanyauhalin/homebrew-shell_gpt/blob/main/.github/workflows/build.yml/) action you can learn more about the build process.
+
+> [!NOTE]
+> You might notice some archive files listed on this page. These archives are empty and unrelated to the ShellGPT source code or the unofficial Homebrew formula. Unfortunately, GitHub automatically generates these archives, and there is no option to disable it. For more information, you can refer to the [community discussion](https://github.com/orgs/community/discussions/6003/).
